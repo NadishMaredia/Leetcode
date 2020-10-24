@@ -1,0 +1,24 @@
+public class Solution {
+    public int SingleNumber(int[] nums) {
+        Dictionary<int,int> result = new Dictionary<int,int>();
+        
+        foreach(int i in nums)
+        {
+            if(!result.ContainsKey(i))
+            {
+                result.Add(i,1);
+            }
+            else
+            {
+                result[i] += 1;
+            }
+        }
+        
+        foreach(KeyValuePair<int,int> item in result)
+        {
+            if(item.Value == 1) return item.Key;
+        }
+        
+        return -1;
+    }
+}

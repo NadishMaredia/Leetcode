@@ -1,0 +1,27 @@
+public class Solution {
+    public IList<int> FindDisappearedNumbers(int[] nums) {
+        IList<int> result = new List<int>();
+        
+        HashSet<int> rangeSet = new HashSet<int>();
+        HashSet<int> Set = new HashSet<int>();
+        
+        
+        for(int i = 1;i<=nums.Length;i++)
+        {
+            rangeSet.Add(i);
+        }
+        foreach(int i in nums)
+        {
+            Set.Add(i);
+        }
+        
+        foreach(int i in rangeSet){
+            if(!Set.Contains(i))
+            {
+                result.Add(i);
+            }
+        }
+        
+        return result;
+    }
+}

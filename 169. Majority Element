@@ -1,0 +1,25 @@
+public class Solution {
+    public int MajorityElement(int[] nums) {
+        double divide = nums.Length / 2;
+        double more = Math.Floor(divide);
+        
+        Dictionary<int, int> result = new Dictionary<int,int>();
+        foreach(int i in nums)
+        {
+            if(!result.ContainsKey(i))
+            {
+                result.Add(i,1);
+            }else
+            {
+                result[i] += 1;
+            }
+        }
+        
+        foreach(KeyValuePair<int,int> item in result)
+        {
+            if(item.Value > more) return item.Key;
+        }
+        
+        return -1;
+    }
+}

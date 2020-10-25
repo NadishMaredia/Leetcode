@@ -1,0 +1,26 @@
+public class Solution {
+    public int[] Shuffle(int[] nums, int n) {
+        int first = 0;
+        int second = n;
+        int[] result = new int[nums.Length];
+        string mode = "first";
+        
+        for(int i = 0;i<nums.Length;i++)
+        {
+            if(mode == "first")
+            {
+                result[i] = nums[first];
+                first++;
+                mode = "second";
+            }
+            else
+            {
+                result[i] = nums[second];
+                second++;
+                mode = "first";
+            }
+        }
+        
+        return result;
+    }
+}

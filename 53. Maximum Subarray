@@ -1,0 +1,16 @@
+public class Solution {
+    public int MaxSubArray(int[] nums) {
+        
+        int max = Int32.MinValue;
+        int maxending = 0;
+        foreach(int i in nums)
+        {
+            maxending += i;
+            
+            if(max < maxending) max = maxending;
+            
+            if(maxending < 0) maxending = 0;
+        }
+        return max;
+    }
+}

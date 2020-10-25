@@ -1,0 +1,21 @@
+public class Solution {
+    public string RestoreString(string s, int[] indices) {
+        string newword = "";
+        Dictionary<int, char> map = new Dictionary<int, char>();
+        
+        int index = 0;
+        foreach(int i in indices)
+        {
+            map.Add(i, s[index]);
+            index++;
+        }
+        
+        
+        foreach(KeyValuePair<int, char> item in map.OrderBy(a => a.Key))
+        {
+            newword += item.Value;
+        }
+        
+        return newword;
+    }
+}

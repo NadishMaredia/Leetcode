@@ -1,0 +1,18 @@
+public class Solution {
+    public string DefangIPaddr(string address) {
+        
+        string newword = "";
+        foreach(char c in address)
+        {
+            if(c == '.')
+            {
+                newword += "[.]";
+            }else{
+                newword += c;
+            }
+            
+        }
+        
+        return newword;
+    }
+}

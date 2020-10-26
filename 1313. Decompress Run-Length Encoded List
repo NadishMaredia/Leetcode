@@ -1,0 +1,24 @@
+public class Solution {
+    public int[] DecompressRLElist(int[] nums) {
+        
+        IList<int> mylist = new List<int>();
+        int count = 0;
+        
+        for(int i = 0;i<nums.Length;i=i+2)
+        {
+            for(int j = 0;j<nums[i];j++)
+            {
+                mylist.Add(nums[i+1]);
+                count++;
+            }
+        }
+        int[] result = new int[count];
+        int index = 0;
+        foreach(int i in mylist)
+        {
+            result[index] = i;
+            index++;
+        }
+        return result;
+    }
+}

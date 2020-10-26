@@ -1,0 +1,21 @@
+public class Solution {
+    public int RepeatedNTimes(int[] A) {
+        Dictionary<int, int> map = new Dictionary<int,int>();
+        
+        foreach(int i in A)
+        {
+            if(!map.ContainsKey(i)){
+                map.Add(i, 1);
+            }
+            else{
+                map[i] += 1;
+            }
+        }
+        
+        foreach(KeyValuePair<int, int> item in map.OrderByDescending(a => a.Value)){
+            return item.Key;
+        }
+        
+        return 1;
+    }
+}

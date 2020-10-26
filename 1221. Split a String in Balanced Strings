@@ -1,0 +1,22 @@
+public class Solution {
+    public int BalancedStringSplit(string s) {
+        
+        int count = 0, res = 0;
+        foreach(char c in s)
+        {
+            if(c == 'L')
+            {
+                count--;
+            }
+            else if(c == 'R')
+            {
+                count++;
+            }
+            
+            if(count == 0)
+                res++;
+        }
+        
+        return res;
+    }
+}

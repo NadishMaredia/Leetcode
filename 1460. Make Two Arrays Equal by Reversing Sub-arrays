@@ -1,0 +1,28 @@
+public class Solution {
+    public bool CanBeEqual(int[] target, int[] arr) {
+        
+        Dictionary<int, int> map1 = new Dictionary<int,int>();
+        foreach(int i in target){
+            if(!map1.ContainsKey(i)){
+                map1.Add(i,1);
+            }else{
+                map1[i] += 1;
+            }
+        }
+        
+        foreach(int i in arr){
+            if(!map1.ContainsKey(i)){
+                return false;
+            }else{
+                if(map1[i] != 0){
+                    map1[i] -= 1;
+                }else{
+                    return false;
+                }
+                
+            }
+        }
+        
+        return true;
+    }
+}

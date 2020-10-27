@@ -1,0 +1,24 @@
+public class Solution {
+    public bool UniqueOccurrences(int[] arr) {
+        Dictionary<int,int> map = new Dictionary<int, int>();
+        
+        foreach(int i in arr){
+            if(!map.ContainsKey(i)){
+                map.Add(i,1);
+            }else{
+                map[i] += 1;
+            }
+        }
+        
+        HashSet<int> sett = new HashSet<int>();
+        foreach(KeyValuePair<int, int> item in map){
+            if(sett.Contains(item.Value))
+            {
+                return false;
+            }
+            sett.Add(item.Value);
+        }
+        
+        return true;
+    }
+}

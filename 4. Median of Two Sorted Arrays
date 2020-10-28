@@ -1,0 +1,35 @@
+public class Solution {
+    public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
+        double result = 0;
+        
+        int[] sorted = Merge(nums1, nums2);
+        int addd = nums1.Length + nums2.Length;
+        int median = 0;
+        if(addd % 2 == 0){
+            double first = sorted[(addd / 2) - 1];
+            double second = sorted[addd / 2];
+            return result = Convert.ToDouble((first+second) / 2);
+        }else{
+            median = addd / 2;
+        }
+        result = Convert.ToDouble(sorted[median]);
+        return result;
+    }
+    
+    public int[] Merge(int[] a, int[] b){
+        int[] result = new int[a.Length+b.Length];
+        
+        int index = 0;
+        for(int i = 0;i<a.Length;i++){
+            result[i] = a[i];
+            index++;
+        }
+        for(int i = 0;i<b.Length;i++){
+            result[index] = b[i];
+            index++;
+        }
+        Array.Sort(result);
+        
+        return result;
+    }
+}

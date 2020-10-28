@@ -1,0 +1,19 @@
+public class Solution {
+    public double Average(int[] salary) {
+        
+        double result = 0;
+        Array.Sort(salary);
+        int count = 0;
+        
+        if(salary.Length == 3){
+            return salary[1];
+        }else{
+            for(int i = 1;i<salary.Length-1;i++){
+                result += salary[i];
+                count++;
+            }
+        }
+        
+        return result / count;
+    }
+}

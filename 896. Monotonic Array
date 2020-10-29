@@ -1,0 +1,21 @@
+public class Solution {
+    public bool IsMonotonic(int[] A) {
+        
+        int countIn = 0,countDe = 0;
+        for(int i = 0;i<A.Length-1;i++)
+        {
+            if(A[i] <= A[i+1]){
+                countIn++;
+            }
+            
+            if(A[i] >= A[i+1]){
+                countDe++;
+            }
+        }
+        
+        if((countIn == A.Length-1) || (countDe == A.Length-1))
+            return true;
+        
+        return false;
+    }
+}

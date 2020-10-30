@@ -1,0 +1,20 @@
+public class Solution {
+    public int FindLucky(int[] arr) {
+        Dictionary<int, int> map = new Dictionary<int, int>();
+        
+        foreach(int i in arr){
+            if(!map.ContainsKey(i)){
+                map.Add(i,1);
+            }else{
+                map[i] += 1;
+            }
+        }
+        
+        foreach(KeyValuePair<int, int> item in map.OrderByDescending(a=>a.Value)){
+            if(item.Key == item.Value)
+                return item.Key;
+        }
+        
+        return -1;
+    }
+}

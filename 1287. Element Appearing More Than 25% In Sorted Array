@@ -1,0 +1,23 @@
+public class Solution {
+    public int FindSpecialInteger(int[] arr) {
+        
+        decimal percent = (25m / 100m) * arr.Length;
+        Dictionary<int, int> map = new Dictionary<int, int>();
+        
+        foreach(int i in arr){
+            if(!map.ContainsKey(i)){
+                map.Add(i, 1);
+            }else{
+                map[i] += 1;
+            }
+        }
+        
+        foreach(KeyValuePair<int,int> item in map){
+            if(item.Value > percent){
+                return item.Key;
+            }
+        }
+        
+        return -1;
+    }
+}

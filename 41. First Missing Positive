@@ -1,0 +1,14 @@
+public class Solution {
+    public int FirstMissingPositive(int[] nums) {
+        
+        int ans = 0;
+        for(int i = 1;i<=300;i++){
+            if(!nums.Contains(i)){
+                ans = i;
+                break;
+            }
+        }
+        
+        return ans;
+    }
+}

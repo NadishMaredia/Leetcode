@@ -1,0 +1,17 @@
+public class Solution {
+    public int[] SearchRange(int[] nums, int target) {
+        
+        int startIndex = -1, endIndex = -1;
+        for(int i = 0;i<nums.Length;i++)
+        {
+            if(nums[i] == target){
+                if(startIndex == -1){
+                    startIndex = i;
+                }
+                endIndex = i;
+            }
+        }
+        
+        return new int[]{startIndex,endIndex};
+    }
+}

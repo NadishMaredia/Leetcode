@@ -1,0 +1,15 @@
+public class Solution {
+    public double TrimMean(int[] arr) {
+        
+        decimal c = ((decimal)5 / 100) * arr.Length;
+        int removee = Convert.ToInt32(c);
+        Array.Sort(arr);
+        double sum = 0, count = 0;
+        for(int i = removee;i<arr.Length - removee;i++){
+            sum += arr[i];
+            count++;
+        }
+        
+        return (sum / count);
+    }
+}

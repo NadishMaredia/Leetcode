@@ -1,0 +1,46 @@
+public class Solution {
+    public int[] ProcessQueries(int[] queries, int m) {
+        int[] result = new int[queries.Length];
+        
+        int[] P = new int[m];
+        for(int i = 1;i<=m;i++){
+            P[i-1] = i;
+        }
+        
+        for(int i = 0;i<queries.Length;i++){
+            int val = queries[i];
+            int indexFromP = getIndex(P, val);
+            moveArray(P, indexFromP);
+            // printArray(P);
+            // Console.WriteLine(indexFromP);
+            result[i] = indexFromP;
+        }
+        return result;
+    }
+    
+    // return the index of element
+    public int getIndex(int[] a,int key){
+        
+        for(int i = 0;i<a.Length;i++){
+            if(a[i] == key)
+                return i;
+        }
+        return -1;
+    }
+    
+    // move elements and place that arr[ind] in front of array
+    public void moveArray(int[] arr, int ind){
+        int a = arr[ind];
+        for(int i = ind;i>0;i--){
+            arr[i] = arr[i-1];
+        }
+        arr[0] = a;
+    }
+    
+    public void printArray(int[] a){
+        foreach(int i in a){
+            Console.Write(i +" ");
+        }
+        Console.WriteLine();
+    }
+}

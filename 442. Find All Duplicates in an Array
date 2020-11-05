@@ -1,0 +1,22 @@
+public class Solution {
+    public IList<int> FindDuplicates(int[] nums) {
+        IList<int> mylist = new List<int>();
+        
+        Dictionary<int,int> map = new Dictionary<int, int>();
+        foreach(int i in nums){
+            if(!map.ContainsKey(i)){
+                map.Add(i,1);
+            }else{
+                map[i] += 1;
+            }
+        }
+        
+        foreach(KeyValuePair<int, int> item in map){
+            if(item.Value != 1){
+                mylist.Add(item.Key);
+            }
+        }
+        
+        return mylist;
+    }
+}

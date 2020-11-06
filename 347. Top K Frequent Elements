@@ -1,0 +1,24 @@
+public class Solution {
+    public int[] TopKFrequent(int[] nums, int k) {
+        Dictionary<int, int> map = new Dictionary<int, int>();
+        
+        foreach(int i in nums){
+            if(!map.ContainsKey(i)){
+                map.Add(i,1);
+            }else{
+                map[i] += 1;
+            }
+        }
+        
+        int[] result = new int[k];
+        int index = 0;
+        foreach(KeyValuePair<int, int> item in map.OrderByDescending(el => el.Value)){
+             if(k != index){
+                 result[index] = item.Key;
+                 index++;
+             }
+            
+        }
+        return result;
+    }
+}

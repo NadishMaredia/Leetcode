@@ -1,0 +1,23 @@
+static void moreThanNdK(int[] arr, int size, int k)
+        {
+            decimal checker = Math.Floor(Convert.ToDecimal(size / k));
+            Console.WriteLine(checker);
+            Dictionary<int, int> mydict = new Dictionary<int, int>();
+            foreach(int i in arr)
+            {
+                if(!mydict.ContainsKey(i))
+                {
+                    mydict.Add(i, 1);
+                }
+                else{
+                    mydict[i] += 1;
+                }
+            }
+
+            foreach(KeyValuePair<int, int> item in mydict)
+            {
+                if(item.Value > checker)
+                    Console.WriteLine("Number: " +item.Key +" Count: "+item.Value);
+            }
+
+        }

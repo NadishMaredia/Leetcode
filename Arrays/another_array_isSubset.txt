@@ -1,0 +1,37 @@
+static bool isArraySubset2(int[] a, int[] b)
+        {
+            List<int> blist = new List<int>();
+            foreach(int i in b)
+            {
+                blist.Add(i);
+            }
+
+            for(int i = 0;i<a.Length;i++)
+            {
+                if(!blist.Contains(a[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        static bool isArraySubset(int[] arr1, int n1, int[] arr2, int n2)
+        {
+            bool result = false;
+
+            if(n1 == n2) {
+                Console.WriteLine(1);
+                result = isArraySubset2(arr1, arr2);
+            }
+            else if(n1 < n2){
+                Console.WriteLine(2);
+                result = isArraySubset2(arr1, arr2);
+            }
+            else if(n1 > n2){
+                Console.WriteLine(3);
+                result = isArraySubset2(arr2, arr1);
+            }
+
+            return result;
+        }

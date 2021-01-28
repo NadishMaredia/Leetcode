@@ -1,0 +1,65 @@
+import java.util.Arrays;
+
+public class starter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hello");
+		int arr[] = {12, 4, 7, 9, 2, 23, 25, 41, 
+				30, 40, 28, 42, 30, 44, 48, 
+				43, 50};
+		chocolateDistribution(arr, 7);
+	}
+
+	public static void chocolateDistribution(int[] arr, int students)
+	{
+		int n = arr.length;
+		int a = 0;
+		int b = students;
+		int minSum = Integer.MAX_VALUE;
+		
+		Arrays.sort(arr);
+		
+		while(b <= n) {
+			int min = Integer.MAX_VALUE;
+			int max = Integer.MIN_VALUE;
+			
+			for(int j = a;j<b;j++)
+			{
+				min = Math.min(min, arr[j]);
+				max = Math.max(max, arr[j]);
+				System.out.print(arr[j] +" ");
+			}
+			minSum = Math.min(minSum, (max - min));
+			a++;
+			b++;
+		}
+		
+		System.out.println("Result: " +minSum);
+			
+
+	}
+	public static void tappingRainWater(int[] arr)
+	{
+		int res = 0;
+		int n = arr.length;
+		
+		for(int i = 1;i<n-1;i++) 
+		{
+			int left = arr[i];
+			for(int j = 0;j<i;j++)
+			{
+				left = Math.max(left, arr[j]);
+			}
+			
+			int right = arr[i];
+			for(int j = i+1;j<n;j++)
+			{
+				right = Math.max(right, arr[j]);
+			}
+			
+			res += Math.min(left, right) - arr[i];
+		}
+		System.out.println(res);
+	}
+}
